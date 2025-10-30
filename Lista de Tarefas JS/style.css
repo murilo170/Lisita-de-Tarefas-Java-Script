@@ -1,0 +1,299 @@
+:root {
+    --cor-fundo-body: #2c3e50; 
+    --cor-fundo-container: #34495e;
+    --cor-texto-principal: #ecf0f1;
+    --cor-texto-secundario: #bdc3c7;
+    --cor-borda: #4a627a;
+    --cor-destaque: #3498db;
+    --cor-destaque-hover: #2980b9;
+
+    --cor-alta: #e74c3c;
+    --cor-media: #f1c40f;
+    --cor-baixa: #27ae60;
+    --cor-concluida: #7f8c8d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--cor-fundo-body);
+    color: var(--cor-texto-principal);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-height: 100vh; 
+    padding: 40px 20px;
+}
+
+#titulo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.container {
+    background: var(--cor-fundo-container);
+    padding: 30px;
+    border-radius: 12px; 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); 
+    width: 100%;
+    max-width: 650px; 
+    border: 1px solid var(--cor-borda);
+     
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--cor-destaque);
+    font-size: 2.2em; 
+}
+
+/* --- Barra de Estatísticas/Filtro --- */
+.stats-bar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 12px 15px;
+    background-color: #4a627a; 
+    border-radius: 8px; 
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-secundario);
+    font-size: 0.95em;
+    flex-wrap: wrap; 
+    gap: 10px;
+}
+
+/* Contêiner para agrupar os selects de filtro */
+.stats-bar-filtros {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Estilo Comum para Filtros e Select de Prioridade no Form */
+#filtro-status, #filtro-prioridade, #prioridade-select {
+    appearance: none; 
+    background-color: var(--cor-fundo-body);
+    color: var(--cor-texto-principal);
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--cor-borda);
+    font-size: 1em;
+    cursor: pointer;
+    outline: none; 
+    transition: all 0.2s ease;
+    min-width: 140px;
+    /* Ícone de seta personalizado em SVG para selects */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ecf0f1%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-5.4H18.4a17.6%2017.6%200%200%00-13.2%205.4A17.6%2017.6%200%200%000%2082.2c0%203.8%201.5%207.5%204.4%2010.4l128%20127.9c3%203%206.7%204.4%2010.4%204.4s7.4-1.4%2010.4-4.4l128-127.9c3-3%204.4-6.7%204.4-10.4%200-3.9-1.5-7.6-4.4-10.4z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+    padding-right: 30px; 
+}
+
+#filtro-status:hover, #filtro-prioridade:hover {
+    border-color: var(--cor-destaque);
+}
+#filtro-status:focus, #filtro-prioridade:focus {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+}
+
+/* --- Formulário --- */
+#todo-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+#tarefa-input, #prioridade-select {
+    padding: 14px; 
+    border-radius: 8px; 
+    border: 1px solid var(--cor-borda);
+    font-size: 1em;
+    background-color: var(--cor-fundo-body); 
+    color: var(--cor-texto-principal);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+#tarefa-input::placeholder {
+    color: var(--cor-texto-secundario);
+    opacity: 0.7;
+}
+
+#tarefa-input:focus, #prioridade-select:focus {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+}
+
+#tarefa-input {
+    flex-grow: 1; 
+}
+
+#prioridade-select {
+    min-width: 140px;
+}
+
+#prioridade-select option, #filtro-status option, #filtro-prioridade option {
+    background-color: var(--cor-fundo-body);
+    color: var(--cor-texto-principal);
+}
+
+
+#todo-form button {
+    background-color: var(--cor-destaque);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 14px 20px; 
+    border-radius: 8px; 
+    font-weight: bold;
+}
+
+#todo-form button:hover {
+    background-color: var(--cor-destaque-hover);
+    transform: translateY(-2px); 
+}
+#todo-form button:active {
+    transform: translateY(0); 
+}
+
+/* --- Lista de Tarefas --- */
+#lista-tarefas {
+    list-style: none;
+    
+    /* Propriedades para a barra de rolagem! */
+    max-height: 350px; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+
+    /* Estilo do Scrollbar (Webkit - Chrome, Safari) */
+    scrollbar-color: var(--cor-destaque) #4a627a;
+    scrollbar-width: thin;
+}
+
+#lista-tarefas::-webkit-scrollbar {
+    width: 8px;
+}
+
+#lista-tarefas::-webkit-scrollbar-track {
+    background: var(--cor-fundo-container);
+    border-radius: 10px;
+}
+
+#lista-tarefas::-webkit-scrollbar-thumb {
+    background-color: var(--cor-destaque-hover);
+    border-radius: 10px;
+    border: 2px solid var(--cor-fundo-container);
+}
+
+
+.tarefa-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px; 
+    margin-bottom: 12px; 
+    background: #4a627a; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); 
+    border-left: 6px solid transparent; 
+    transition: all 0.2s ease;
+    color: var(--cor-texto-principal);
+}
+
+.tarefa-item:last-child {
+    margin-bottom: 0; 
+}
+
+/* Estilos de Prioridade */
+.prioridade-alta { border-left-color: var(--cor-alta); }
+.prioridade-media { border-left-color: var(--cor-media); }
+.prioridade-baixa { border-left-color: var(--cor-baixa); }
+
+/* Estilo de Tarefa Concluída */
+.concluida {
+    opacity: 0.7;
+    text-decoration: line-through;
+    color: var(--cor-concluida);
+    border-left-color: var(--cor-concluida) !important;
+}
+
+.tarefa-texto {
+    flex-grow: 1;
+    cursor: default;
+    font-size: 1.05em;
+}
+.tarefa-texto:hover {
+    color: inherit;
+}
+
+
+/* --- Botões de Ação na Tarefa (Check e Excluir) --- */
+
+/* Contêiner dos botões para organizar */
+.tarefa-botoes {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 15px;
+}
+
+/* Estilo geral para os botões de ícone */
+.btn-check, .btn-excluir {
+    background: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    padding: 5px;
+}
+
+.btn-check:hover, .btn-excluir:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Cor específica para o check */
+.btn-check {
+    color: var(--cor-baixa);
+    font-size: 1.2em;
+}
+
+/* Cor do 'X' (mantida) */
+.btn-excluir {
+    color: var(--cor-alta);
+}
+
+/* Responsividade básica (ajustado para caber os 2 filtros) */
+@media (max-width: 600px) {
+    .stats-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .stats-bar-filtros {
+        width: 100%;
+        justify-content: space-between;
+    }
+    #filtro-status, #filtro-prioridade {
+        min-width: 48%; 
+    }
+    #todo-form {
+        flex-direction: column;
+    }
+    #prioridade-select {
+        width: 100%;
+    }
+    #todo-form button {
+        width: 100%;
+    }
+}

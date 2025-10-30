@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List Inteligente - Portfólio JS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 id="titulo">Minhas Tarefas</h1>
+
+        <div class="stats-bar">
+            <span id="tarefas-pendentes">Você tem 0 tarefas pendentes.</span>
+
+            <div class="stats-bar-filtros">
+                <select id="filtro-status">
+                    <option value="todos">Mostrar Todos</option>
+                    <option value="pendentes">Pendentes</option>
+                    <option value="concluidas">Concluídas</option>
+                </select>
+                
+                <select id="filtro-prioridade">
+                    <option value="todas">Todas Prioridades</option>
+                    <option value="alta">Alta</option>
+                    <option value="media">Média</option>
+                    <option value="baixa">Baixa</option>
+                </select>
+            </div>
+        </div>
+
+        <form id="todo-form">
+            <input type="text" id="tarefa-input" placeholder="O que precisa ser feito?" required>
+            
+            <select id="prioridade-select" required>
+                <option value="" disabled selected>Prioridade</option>
+                <option value="baixa">Baixa</option>
+                <option value="media">Média</option>
+                <option value="alta">Alta</option>
+            </select>
+            
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <ul id="lista-tarefas">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
