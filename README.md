@@ -31,7 +31,7 @@ O objetivo foi criar uma Lista de Tarefas (ToDo List) robusta, que fosse além d
 
 1.  **Clone o Repositório:**
     ```bash
-    git clone [LINK_DO_SEU_REPOSITORIO]
+    git clone (https://github.com/murilo170/Lista-de-tarefas-Java-Script.git)
     cd lista-de-tarefas-javascript
     ```
 2.  **Abra:** Simplesmente abra o arquivo `index.html` no seu navegador favorito.
